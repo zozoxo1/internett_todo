@@ -44,18 +44,17 @@ exports.updateTodo = (req, res) => {
 
     db.queryById(id)
         .then(result => {
-            res.send(re);
-            
-        })
-        .catch(err => res.status(500).send(err));
+            let updated_todo = req.body;
 
-    db.update(id, req.body)
-        .then(result => {
-            console.log("updateTodo: db returned %o", result);
-            
-            db.queryById(id)
+            for(var i in updated_todo) {
+                result[i] = updated_todo[i];
+            }
+
+            db.update(id, result)
                 .then(re => {
-                    res.send(re);
+                    console.log("updateTodo: db returned %o", re);
+                    
+                    res.send(result);
                 })
                 .catch(err => res.status(500).send(err));
         })
