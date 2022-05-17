@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 api.init().then(() => {
 
     app.route('/api/todos')
-    .get(api.getTodos)
-    .post(api.createTodo);
+        .get(api.getTodos)
+        .post(api.createTodo);
 
     app.route('/api/todos/:id')
         .put(api.updateTodo)
