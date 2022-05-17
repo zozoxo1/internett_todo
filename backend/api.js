@@ -36,7 +36,6 @@ exports.createTodo = (req, res) => {
 
 }
 
-/** TODO: FIX UPDATE ERROR */
 exports.updateTodo = (req, res) => {
     let id = req.params.id;
 
