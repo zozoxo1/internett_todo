@@ -11,7 +11,6 @@ Es ist möglich, einen Todo Eintrag zu erstellen, in bearbeitung zu setzen und z
 Beim erstellen eines Todo Eintrages, wird ein Titel und ein Datum + Uhrzeit benötigt.
 
 ## Table of Contents
-***
 1. [Installation](#installation)
     * [Konsolenbefehle](#konsolenbefehle)
     * [Einstellungen](#einstellungen-in-der-env-datei)
@@ -19,7 +18,7 @@ Beim erstellen eines Todo Eintrages, wird ein Titel und ein Datum + Uhrzeit ben�
 3. [MongoDB Schema](#mongodb-schema)
 
 ## Installation
-***
+
 Anleitung zur Verwendung dieses Projektes
 ### Konsolenbefehle
 ```
@@ -33,7 +32,6 @@ $ node app.js
 Für eine __Produktive Umgebung__ ist darauf zu achten, dass der Backend Ordner __nicht__ von außerhalb zu erreichen ist!
 
 ### Einstellungen in der .env Datei
-***
 Für die Verwendung des Backends ist es notwendig, dass die Variablen in der *.env* Datei angepasst werden. Eine __MongoDB__ Datenbank ist erforderlich.
 <br><br>
 
@@ -47,7 +45,6 @@ Schema eines MongoDB Datenbank Eintrags
 ```
 
 ## Packages / Libraries
-***
 Liste der verwendeten Packages und Bibliotheken
 * [Cors Package](https://www.npmjs.com/package/cors): Version 2.8.5 
 * [Dotenv](https://github.com/motdotla/dotenv): Version 16.0.1
