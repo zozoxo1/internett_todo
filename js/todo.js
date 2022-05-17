@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/";
+const API_URL = "http://localhost:4000/api/";
 
 function getHoverStatusText(status) {
 
@@ -125,7 +125,8 @@ function addEntryListener() {
 
     let entry = {
         title: inputField.value,
-        due: dateField.value + 'Z'
+        due: dateField.value + 'Z',
+        status: 'open'
     };
 
     // make request to add todo entry
@@ -136,7 +137,7 @@ function addEntryListener() {
         data: JSON.stringify(entry),
         success: function(res) {
             console.log(res);
-            addTodo(res.title, res.due, res.status, res.id);
+            addTodo(res.title, res.due, res.status, res["_id"]);
         },
         error: function(res, status) {
             console.log(res);
@@ -159,7 +160,7 @@ function fillTodo() {
             // add todos to frontend
             for(var i = 0; i < todo_list.length; i++) {
                 console.log(todo_list[i]);
-                addTodo(todo_list[i].title, todo_list[i].due, todo_list[i].status, todo_list[i].id);
+                addTodo(todo_list[i].title, todo_list[i].due, todo_list[i].status, todo_list[i]["_id"]);
             }
         },
         error: function(res, status) {
