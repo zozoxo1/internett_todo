@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,html {
+    background: linear-gradient(to right, rgb(63, 12, 121), rgb(89, 12, 89)) fixed
+}
+
+
+/*****************************
+    MID WRAPPER
+*****************************/
+
+#mid_wrapper {
+    width: 20cm;
+    height: 20cm;
+    margin: 3rem auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 3px grey;
+}
+
+#mid_wrapper h1 {
+    text-align: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+
+/*****************************
+    TODO FORM
+*****************************/
+
+#todo_form {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+#todo_form input[type=text] {
+    border: none;
+    padding: 10px 20px;
+    width: 40%;
+    font-size: 14pt;
+}
+
+#todo_form input[type=text]:focus {
+    outline: none;
+}
+
+#todo_form input[type=submit] {
+    border: 1px solid purple;
+    background:purple;
+    color:white;
+    padding: 0 10px;
+    font-size: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: ease-in .05s;
+}
+
+#todo_form input[type=submit]:hover {
+    background: rgb(197, 6, 197);
+    border: 1px solid rgb(197, 6, 197);
+}
+
+#todo_form input[type=datetime-local] {
+    cursor: pointer;
+    padding: 10px 10px 10px 20px;
+    appearance: none;
+    border: none;
+}
+
+#todo_form [type=datetime-local]:hover {
+    outline: 1px solid rgb(197, 6, 197);
+}
+
+#todo_form [type=datetime-local]:focus {
+    outline: none;
+}
+
+
+/*****************************
+    TASKS
+*****************************/
+
+#tasks {
+    height: 37em;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+    list-style: none;
+}
+
+#tasks li {
+    background: white;
+    margin: 10px 30px;
+    padding: 10px 20px;
+    font-size: 14pt;
+    transform: translateX(10px);
+    min-height: 40px;
+}
+
+#tasks li .due_time {
+    color: grey;
+    font-size: 12pt;
+    line-height: 40px;
+    margin-left: 10px;
+    text-align: right;
+}
+
+#tasks li hr {
+    height: 1px;
+    border: 0;
+    outline: 0;
+    background: rgba(118, 118, 118, 0.533);
+    margin-top: 20px;
+}
+
+#tasks .low_prio {
+    background: rgb(161, 255, 161);
+}
+
+#tasks .doing {
+    background: rgb(236, 169, 53);
+}
+
+#tasks .high_prio {
+    background: rgb(239, 106, 106);
+}
+
+#tasks .done {
+    background: white;
+    opacity: .4;
+    transform: translateX(10px) scale(.97);
+}
+
+#tasks .done p {
+    text-decoration: line-through;
+}
+
+#tasks li .task_action {
+    position: absolute;
+    background: rgba(0, 0, 0, .85);
+    height: 100%;
+    width: 100%;
+    transform: translateX(-20px) translateY(-10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#tasks li:hover,.task_action:hover > .done {
+    opacity: 1;
+}
+
+#tasks li:hover > .task_action {
+    display: flex;
+}
+
+/* SCROLLBAR */
+#tasks::-webkit-scrollbar {
+    width: 10px;
+}
+  
+#tasks::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+#tasks::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+#tasks::-webkit-scrollbar-thumb:hover {
+    background: rgb(102, 101, 101);
+}
+
+.task_action p {
+    color: white;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+@media screen and (max-width: 770px) {
+    #mid_wrapper {
+        width: 15cm;
+    }
+}

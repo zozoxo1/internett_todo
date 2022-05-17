@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>ToDo Liste</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/todo.js"></script>
+
+    <div id="mid_wrapper">
+        <h1>Meine ToDo Liste</h1>
+
+        <form id="todo_form" action="javascript:void(0)">
+            <input type="text" required="true" name="todo_form_input" id="todo_form_input" placeholder="Neue Aufgabe...">
+            <input type="submit" id="todo_form_submit" value="+">
+            <input type="datetime-local" name="todo_form_due_picker" id="todo_form_due_picker" required>
+        </form>
+
+        <ul id="tasks">
+        </ul>
+    </div>
+</body>
+</html>
