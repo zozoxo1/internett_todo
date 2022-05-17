@@ -6,15 +6,17 @@ const api = require('./api.js');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.static('static'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/api/todos', api.getTodos);
-app.post('/api/todos', api.createTodo);
-app.put('/api/todos/:id', api.updateTodo);
-app.delete('/api/todos/:id', api.deleteTodo);
+app.route('/api/todos')
+    .get(api.getTodos)
+    .post(api.createTodo);
+
+app.route('/api/todos/:id')
+    .put(api.updateTodo)
+    .delete(api.deleteTodo);
 
 app.listen(port, (error) => {
     if(error) {

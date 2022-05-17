@@ -35,65 +35,64 @@ function getFreeTodoID() {
     return index;
 }
 
-module.exports = {
 
-    getTodos: (req, res) => {
-        res.send(TODOS);
-    },
 
-    createTodo: (req, res) => {
-        console.log("createTodo: %o", req.body);
+exports.getTodos = (req, res) => {
+    console.log(`getTodo: ${JSON.stringify(req.body)}`);
+    res.send(TODOS);
+}
 
-        var new_todo = req.body;
-        new_todo.id = getFreeTodoID();
-        new_todo.status = 'open';
+exports.createTodo = (req, res) => {
+    console.log(`createTodo: ${JSON.stringify(req.body)}`);
 
-        TODOS.push(new_todo);
+    var new_todo = req.body;
+    new_todo.id = getFreeTodoID();
+    new_todo.status = 'open';
 
-        res.send(new_todo);
-    },
+    TODOS.push(new_todo);
 
-    updateTodo: (req, res) => {
-        let id = req.params.id;
+    res.send(new_todo);
+},
 
-        const element = TODOS.find(element => element.id == id);
+exports.updateTodo = (req, res) => {
+    let id = req.params.id;
 
-        if(element == undefined) {
-            res.status(400);
-            res.send("Ungültige ID");
-            return;
-        }
+    const element = TODOS.find(element => element.id == id);
 
-        console.log("updateTodo: %s %o", id, req.body);
-        let updated_todo = req.body;
-
-        const elementIndex = TODOS.findIndex(element => element.id == id);
-        for(var i in updated_todo) {
-            TODOS[elementIndex][i] = updated_todo[i];
-        }
-        
-        res.send(TODOS[elementIndex]);
-    },
-
-    deleteTodo: (req, res) => {
-        let id = req.params.id;
-
-        const element = TODOS.find(element => element.id == id);
-
-        if(element == undefined) {
-            res.status(400);
-            res.send("Ungültige ID");
-            return;
-        }
-
-        console.log("deleteTodo: %s %o", id, req.body);
-
-        const elementIndex = TODOS.findIndex(element => element.id == id);
-
-        TODOS.splice(elementIndex, 1);
-
-        res.status(204);
-        res.send();
+    if(element == undefined) {
+        res.status(400);
+        res.send("Ungültige ID");
+        return;
     }
 
+    console.log(`updateTodo: ${id} ${JSON.stringify(req.body)}`);
+    let updated_todo = req.body;
+
+    const elementIndex = TODOS.findIndex(element => element.id == id);
+    for(var i in updated_todo) {
+        TODOS[elementIndex][i] = updated_todo[i];
+    }
+    
+    res.send(TODOS[elementIndex]);
+},
+
+exports.deleteTodo = (req, res) => {
+    let id = req.params.id;
+
+    const element = TODOS.find(element => element.id == id);
+
+    if(element == undefined) {
+        res.status(400);
+        res.send("Ungültige ID");
+        return;
+    }
+
+    console.log(`deleteTodo: ${id}`);
+
+    const elementIndex = TODOS.findIndex(element => element.id == id);
+
+    TODOS.splice(elementIndex, 1);
+
+    res.status(204);
+    res.send();
 }
