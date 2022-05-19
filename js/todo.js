@@ -149,6 +149,10 @@ function addEntryListener() {
 
 }
 
+/**
+ * Funktion zum füllen der Todo Liste.
+ * Sendet ein Get request und bei erfolgt, wird die Liste gefüllt
+ */
 function fillTodo() {
     $.ajax({
         type: "GET",

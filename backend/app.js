@@ -1,3 +1,15 @@
+/*********************************************
+ * 
+ * Author: Zoe Günther
+ * 
+ * HINWEIS:
+ * 
+ * Übersichtlichere README Datei
+ * auf GitHub + Installationsanleitung:
+ * https://github.com/zozoxo1/internett_todo
+ * 
+ *********************************************/
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
