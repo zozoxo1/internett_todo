@@ -28,7 +28,7 @@ exports.createTodo = (req, res) => {
             
             db.queryById(result.insertedId)
                 .then(re => {
-                    res.send(re);
+                    res.status(201).send(re);
                 })
                 .catch(err => res.status(500).send(err));
         })
