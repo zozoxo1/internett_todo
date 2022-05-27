@@ -1,5 +1,11 @@
 const API_URL = "http://localhost:4000/api/";
 
+/**
+ * Function to get the text for the hover div
+ * 
+ * @param {*} status status of the todo entry
+ * @returns Text for hover div
+ */
 function getHoverStatusText(status) {
 
     if(status === "open") {
@@ -18,8 +24,14 @@ function getHoverStatusText(status) {
 
 }
 
-// TODO check params
-// add param to buttons
+/**
+ * Function to add a todo entry to the frontend
+ * 
+ * @param {*} title title of the todo entry
+ * @param {*} due due date of the todo entry
+ * @param {*} status status of the todo entry
+ * @param {*} id id of the todo entry
+ */
 function addTodo(title, due, status, id) {
     var todo_list = document.getElementById('tasks');
     var new_entry = document.createElement('li');
@@ -111,6 +123,9 @@ function addTodo(title, due, status, id) {
 
 }
 
+/**
+ * Function to add a listener to the submit button
+ */
 function addEntryListener() {
     var inputField = document.getElementById('todo_form_input');
     var dateField = document.getElementById('todo_form_due_picker');
@@ -150,8 +165,7 @@ function addEntryListener() {
 }
 
 /**
- * Funktion zum füllen der Todo Liste.
- * Sendet ein Get request und bei erfolgt, wird die Liste gefüllt
+ * Function to fill the Todo List with entries
  */
 function fillTodo() {
     $.ajax({
@@ -173,6 +187,9 @@ function fillTodo() {
     });
 }
 
+/**
+ * Function to Fill the Todo List and add a listener to the submit button
+ */
 function init() {
     fillTodo();
 

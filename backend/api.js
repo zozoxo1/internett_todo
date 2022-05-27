@@ -1,9 +1,16 @@
 let db = require('./persistence/mongodb.js');
 
+/**
+ * Function to connect to the database
+ * @returns {Promise<void>} db connection
+ */
 exports.init = () => {
     return db.connect();
 }
 
+/**
+ * Function to get all todos
+ */
 exports.getTodos = (req, res) => {
 
     console.log("getTodo: %o", req.body);
@@ -19,6 +26,9 @@ exports.getTodos = (req, res) => {
 
 }
 
+/**
+ * Function to create a new todo
+ */
 exports.createTodo = (req, res) => {
 
     console.log("createTodo: %o", req.body);
@@ -36,6 +46,9 @@ exports.createTodo = (req, res) => {
 
 }
 
+/**
+ * Function to update a todo
+ */
 exports.updateTodo = (req, res) => {
     let id = req.params.id;
 
@@ -60,6 +73,9 @@ exports.updateTodo = (req, res) => {
         .catch(err => res.status(500).send(err));
 }
 
+/**
+ * Function to delete a todo
+ */
 exports.deleteTodo = (req, res) => {
     let id = req.params.id;
 
